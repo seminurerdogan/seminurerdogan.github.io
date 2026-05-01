@@ -68,11 +68,26 @@
     .cta-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
     footer{padding:1.5rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     footer p{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+    /* ── YAZILAR / BLOG ── */
+    #writings{background:var(--bg)}
+    .writings-list{display:flex;flex-direction:column;gap:0}
+    .writing-card{display:grid;grid-template-columns:90px 1fr auto;gap:1.5rem;padding:2rem 0;border-top:1px solid var(--line);text-decoration:none;transition:background .2s}
+    .writing-card:last-child{border-bottom:1px solid var(--line)}
+    .writing-card:hover .writing-title{color:var(--gold2)}
+    .writing-date{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.1em;padding-top:.25rem;line-height:1.4}
+    .writing-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem}
+    .writing-title{font-family:'Playfair Display',serif;font-size:1.45rem;margin-bottom:.4rem;color:var(--cream);transition:color .2s}
+    .writing-excerpt{color:var(--muted);font-size:1rem}
+    .writing-arrow{font-size:1.2rem;color:var(--gold);align-self:center;opacity:0;transition:opacity .2s,transform .2s}
+    .writing-card:hover .writing-arrow{opacity:1;transform:translateX(4px)}
+
     @media (max-width: 900px){
       nav{padding:1rem 1.2rem}
       section{padding:5rem 1.2rem}
       .about-grid{grid-template-columns:1fr}
-      .project,.exp-card{grid-template-columns:1fr}
+      .project,.exp-card,.writing-card{grid-template-columns:1fr}
+      .writing-arrow{display:none}
       footer{padding:1.2rem;flex-direction:column;text-align:center}
     }
     @media (max-width: 600px){
@@ -89,6 +104,7 @@
       <li><a id="nav-projects" href="#projects">Projeler</a></li>
       <li><a id="nav-experience" href="#experience">Deneyim</a></li>
       <li><a id="nav-skills" href="#skills">Beceriler</a></li>
+      <li><a id="nav-writings" href="#writings">Yazılar</a></li>
       <li><a id="nav-contact" href="#contact">İletişim</a></li>
       <li>
         <div class="lang-wrap">
@@ -136,8 +152,14 @@
     <div class="skills-grid" id="skills-grid"></div>
   </section>
 
+  <!-- ── YAZILAR ── -->
+  <section id="writings">
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title" id="writings-title"></h2><div class="section-rule"></div></div>
+    <div class="writings-list" id="writings-list"></div>
+  </section>
+
   <section id="contact">
-    <div class="section-header"><span class="section-num">05</span><h2 class="section-title" id="contact-title"></h2><div class="section-rule"></div></div>
+    <div class="section-header"><span class="section-num">06</span><h2 class="section-title" id="contact-title"></h2><div class="section-rule"></div></div>
     <div class="contact-wrap">
       <h3 class="contact-big"><span id="contact-h1"></span><br><em id="contact-h2"></em></h3>
       <p class="contact-sub" id="contact-sub"></p>
@@ -156,7 +178,7 @@
   <script>
     const content = {
       tr: {
-        nav: { about: 'Hakkımda', projects: 'Projeler', experience: 'Deneyim', skills: 'Beceriler', contact: 'İletişim' },
+        nav: { about: 'Hakkımda', projects: 'Projeler', experience: 'Deneyim', skills: 'Beceriler', writings: 'Yazılar', contact: 'İletişim' },
         hero: {
           eyebrow: 'Portfolyo · 2026',
           tagline: 'Hikâye odaklı deneyimler tasarlıyorum — anlatı ve müzikle oyuncunun duygusunu şekillendiriyorum.',
@@ -165,7 +187,7 @@
         },
         aboutTitle: 'Hakkımda',
         about: {
-          p1: 'Marmara Üniversitesi’nde İngilizce İktisat, Anadolu Üniversitesi’nde Yönetim Bilişim Sistemleri okuyorum. Farklı disiplinleri bir arada yürütmek bana şunu gösterdi: sayılar, sistemler ve hikâyeler birbirinden kopuk değil.',
+          p1: 'Marmara Üniversitesi'nde İngilizce İktisat, Anadolu Üniversitesi'nde Yönetim Bilişim Sistemleri okuyorum. Farklı disiplinleri bir arada yürütmek bana şunu gösterdi: sayılar, sistemler ve hikâyeler birbirinden kopuk değil.',
           p2: 'Oyun tasarımında özellikle anlatı ve müziğin oyuncu deneyimini nasıl şekillendirdiğine odaklanıyorum. Hikâyeyi sadece yazılan bir şey değil, hissedilen bir deneyim olarak ele alıyorum.',
           p3: 'Şu anda kendi projelerim üzerinde çalışıyor, teknik ve yaratıcı becerilerimi geliştiriyorum. Amacım, oyuncunun duygusal olarak bağ kurduğu, hatırlanabilir deneyimler tasarlamak.'
         },
@@ -240,6 +262,18 @@
             ]
           }
         ],
+        writingsTitle: 'Yazılar',
+        writings: [
+          // ── YENİ YAZI EKLEMEK İÇİN: bu satırın altına kopyala yapıştır yap ──
+          // {
+          //   date: 'May 2026',
+          //   tag: 'Oyun İncelemesi',
+          //   title: 'Yazının Başlığı',
+          //   excerpt: 'Kısa özet — 1-2 cümle.',
+          //   file: 'yazilar/dosya-adi.html'
+          // },
+        ],
+        writingsEmpty: 'Yakında yazılar burada olacak.',
         contactTitle: 'İletişim',
         contact: {
           h1: 'Birlikte bir şeyler',
@@ -250,7 +284,7 @@
         footer: 'Istanbul, Türkiye'
       },
       en: {
-        nav: { about: 'About', projects: 'Projects', experience: 'Experience', skills: 'Skills', contact: 'Contact' },
+        nav: { about: 'About', projects: 'Projects', experience: 'Experience', skills: 'Skills', writings: 'Writing', contact: 'Contact' },
         hero: {
           eyebrow: 'Portfolio · 2026',
           tagline: 'I design story-driven experiences shaped by narrative and music.',
@@ -334,6 +368,18 @@
             ]
           }
         ],
+        writingsTitle: 'Writing',
+        writings: [
+          // ── TO ADD A NEW POST: copy-paste the block below ──
+          // {
+          //   date: 'May 2026',
+          //   tag: 'Game Review',
+          //   title: 'Post Title',
+          //   excerpt: 'Short summary — 1-2 sentences.',
+          //   file: 'yazilar/file-name.html'
+          // },
+        ],
+        writingsEmpty: 'Posts coming soon.',
         contactTitle: 'Contact',
         contact: {
           h1: "Let's build",
@@ -354,6 +400,7 @@
       document.getElementById('nav-projects').textContent = d.nav.projects;
       document.getElementById('nav-experience').textContent = d.nav.experience;
       document.getElementById('nav-skills').textContent = d.nav.skills;
+      document.getElementById('nav-writings').textContent = d.nav.writings;
       document.getElementById('nav-contact').textContent = d.nav.contact;
 
       document.getElementById('hero-eyebrow').textContent = d.hero.eyebrow;
@@ -414,6 +461,24 @@
           `).join('')}
         </div>
       `).join('');
+
+      document.getElementById('writings-title').textContent = d.writingsTitle;
+      const wList = document.getElementById('writings-list');
+      if(d.writings.length === 0){
+        wList.innerHTML = `<p style="color:var(--muted);font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.12em;">${d.writingsEmpty}</p>`;
+      } else {
+        wList.innerHTML = d.writings.map(w => `
+          <a class="writing-card" href="${w.file}">
+            <div class="writing-date">${w.date}</div>
+            <div>
+              <span class="writing-tag">${w.tag}</span>
+              <h3 class="writing-title">${w.title}</h3>
+              <p class="writing-excerpt">${w.excerpt}</p>
+            </div>
+            <div class="writing-arrow">→</div>
+          </a>
+        `).join('');
+      }
 
       document.getElementById('contact-title').textContent = d.contactTitle;
       document.getElementById('contact-h1').textContent = d.contact.h1;
