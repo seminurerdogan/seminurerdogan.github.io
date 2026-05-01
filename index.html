@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semi Nur Erdoğan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0b0906;--bg2:#141009;--gold:#c9a84c;--gold2:#e8c87a;--cream:#ede6d5;--muted:#8a7f6a;--line:rgba(201,168,76,.15)}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--cream);font-family:'Crimson Pro',serif;font-size:18px;line-height:1.75}
+    nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem;background:linear-gradient(to bottom,rgba(11,9,6,.96),rgba(11,9,6,.7),transparent)}
+    .nav-logo{font-family:'Playfair Display',serif;color:var(--gold);text-decoration:none;font-style:italic;letter-spacing:.1em}
+    .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+    .nav-links a,.lang-btn{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;background:none;border:none;cursor:pointer}
+    .nav-links a:hover,.lang-btn:hover{color:var(--gold2)}
+    .lang-wrap{display:flex;border:1px solid var(--line);overflow:hidden}
+    .lang-btn{padding:.35rem .7rem}
+    .lang-btn.active{background:var(--gold);color:var(--bg)}
+    section{padding:6rem 3rem;position:relative}
+    .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:3rem}
+    .section-num{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.12em}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.6vw,2.7rem)}
+    .section-rule{flex:1;height:1px;background:var(--line);max-width:200px}
+    #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:5rem}
+    .hero-eyebrow{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+    .hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,9vw,7rem);line-height:.92;margin-bottom:1.8rem}
+    .hero-name em{font-style:italic;color:var(--gold2)}
+    .hero-tagline{max-width:650px;font-size:clamp(1rem,2vw,1.25rem);color:var(--muted)}
+    .hero-cta{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.8rem 1.5rem;text-decoration:none;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
+    .btn-primary{background:var(--gold);color:var(--bg)}
+    .btn-secondary{border:1px solid var(--line);color:var(--cream)}
+    #about,#skills,#contact{background:var(--bg2)}
+    .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem}
+    .about-body p{margin-bottom:1.2rem;color:var(--muted);font-size:1.08rem}
+    .card-stack{display:grid;gap:1rem}
+    .card{border:1px solid var(--line);background:rgba(201,168,76,.05);padding:1.2rem 1.3rem}
+    .card-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+    .card-value{color:var(--cream)}
+    .card-value small{display:block;color:var(--muted);margin-top:.2rem}
+    .projects-list,.experience-list{display:flex;flex-direction:column;gap:1.5rem}
+    .project,.exp-card{display:grid;grid-template-columns:90px 1fr auto;gap:1.5rem;padding:2rem 0;border-top:1px solid var(--line)}
+    .project:last-child,.exp-card:last-child{border-bottom:1px solid var(--line)}
+    .project-year,.exp-year{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.1em;padding-top:.2rem}
+    .project-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem}
+    .project-name,.exp-title{font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:.5rem}
+    .project-desc,.exp-desc{color:var(--muted)}
+    .exp-sub{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem}
+    .pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+    .pill,.status{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid var(--line);color:var(--muted)}
+    .status.wip{color:var(--gold);border-color:rgba(201,168,76,.35)}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+    .skill-group h3{font-family:'Playfair Display',serif;font-size:1.06rem;color:var(--gold2);font-style:italic;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
+    .skill-item{margin-bottom:1rem}
+    .skill-top{display:flex;justify-content:space-between;gap:1rem;margin-bottom:.35rem}
+    .skill-name{color:var(--cream)}
+    .skill-level{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--gold)}
+    .bar{height:2px;background:rgba(255,255,255,.08);position:relative}
+    .bar span{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(to right,var(--gold),var(--gold2))}
+    .contact-wrap{max-width:700px}
+    .contact-big{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.8rem);line-height:1.1;margin-bottom:1rem}
+    .contact-big em{font-style:italic;color:var(--gold2)}
+    .contact-sub{max-width:520px;color:var(--muted);margin-bottom:2rem}
+    .contact-btns{display:flex;gap:1rem;flex-wrap:wrap}
+    .cta-link{display:inline-flex;align-items:center;gap:.7rem;padding:.8rem 1.4rem;border:1px solid var(--line);color:var(--cream);text-decoration:none;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+    .cta-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+    footer{padding:1.5rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    footer p{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    #writings{background:var(--bg)}
+    .writings-list{display:flex;flex-direction:column;gap:0}
+    .writing-card{display:grid;grid-template-columns:90px 1fr auto;gap:1.5rem;padding:2rem 0;border-top:1px solid var(--line);text-decoration:none;transition:background .2s}
+    .writing-card:last-child{border-bottom:1px solid var(--line)}
+    .writing-card:hover .writing-title{color:var(--gold2)}
+    .writing-date{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.1em;padding-top:.25rem;line-height:1.4}
+    .writing-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem}
+    .writing-title{font-family:'Playfair Display',serif;font-size:1.45rem;margin-bottom:.4rem;color:var(--cream);transition:color .2s}
+    .writing-excerpt{color:var(--muted);font-size:1rem}
+    .writing-arrow{font-size:1.2rem;color:var(--gold);align-self:center;opacity:0;transition:opacity .2s,transform .2s}
+    .writing-card:hover .writing-arrow{opacity:1;transform:translateX(4px)}
+    @media (max-width: 900px){
+      nav{padding:1rem 1.2rem}
+      section{padding:5rem 1.2rem}
+      .about-grid{grid-template-columns:1fr}
+      .project,.exp-card,.writing-card{grid-template-columns:1fr}
+      .writing-arrow{display:none}
+      footer{padding:1.2rem;flex-direction:column;text-align:center}
+    }
+    @media (max-width: 600px){
+      .nav-links li:not(:last-child){display:none}
+      .hero-name{font-size:3rem}
+    }
+  </style>
+</head>
+<body>
+
+<script id="content-data" type="application/json">
+{
+  "tr": {
+    "nav": {"about":"Hakkımda","projects":"Projeler","experience":"Deneyim","skills":"Beceriler","writings":"Yazılar","contact":"İletişim"},
+    "hero": {
+      "eyebrow": "Portfolyo · 2026",
+      "tagline": "Hikâye odaklı deneyimler tasarlıyorum — anlatı ve müzikle oyuncunun duygusunu şekillendiriyorum.",
+      "btn1": "Projeleri Gör",
+      "btn2": "İletişime Geç"
+    },
+    "aboutTitle": "Hakkımda",
+    "about": {
+      "p1": "Marmara Üniversitesinde İngilizce İktisat, Anadolu Üniversitesinde Yönetim Bilişim Sistemleri okuyorum. Farklı disiplinleri bir arada yürütmek bana şunu gösterdi: sayılar, sistemler ve hikâyeler birbirinden kopuk değil.",
+      "p2": "Oyun tasarımında özellikle anlatı ve müziğin oyuncu deneyimini nasıl şekillendirdiğine odaklanıyorum. Hikâyeyi sadece yazılan bir şey değil, hissedilen bir deneyim olarak ele alıyorum.",
+      "p3": "Şu anda kendi projelerim üzerinde çalışıyor, teknik ve yaratıcı becerilerimi geliştiriyorum. Amacım, oyuncunun duygusal olarak bağ kurduğu, hatırlanabilir deneyimler tasarlamak."
+    },
+    "cards": [
+      {"label":"Eğitim","value":"Marmara Üniversitesi","sub":"İktisat (İngilizce) · 2023–2028 · İstanbul"},
+      {"label":"Eğitim","value":"Anadolu Üniversitesi","sub":"Yönetim Bilişim Sistemleri · 2024–2028"},
+      {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Bahar 2027 · Bolzano, İtalya"},
+      {"label":"Sertifikalar","value":"BTK Akademi","sub":"Algoritma, Programlama ve Veri Yapılarına Giriş"}
+    ],
+    "projectsTitle": "Projeler",
+    "projects": [
+      {
+        "year": "2026",
+        "tag": "Oyun Tasarımı · Konsept",
+        "name": "Dark of the Knight",
+        "desc": "Kurgusal karanlık bir orta çağ dünyasında geçen, duygusal gerilim ve söylenmemiş ilişkiler üzerine kurulu anlatı odaklı oyun. Oyuncu seçimlerinin sonucu değil, anlamı ve duygusal ağırlığı değiştirdiği ince bir sistem üzerine odaklanıyor.",
+        "pills": ["Narrative Design","Character Writing","Emotional Design","Music as Narrative"],
+        "status": "Devam Ediyor",
+        "statusType": "wip"
+      },
+      {
+        "year": "2026",
+        "tag": "İnteraktif Anlatı · Konsept",
+        "name": "Resonance",
+        "desc": "Oyuncunun müziksel bir rol üstlendiği ve seçimleriyle hikâyenin tonunu etkilediği interaktif anlatı konsepti. Müzik, oyuncunun kararlarına göre anlatının aktif bir parçasına dönüşür.",
+        "pills": ["Interactive Narrative","Music-driven Design","Player Experience","Concept Development"],
+        "status": "Konsept",
+        "statusType": "concept"
+      }
+    ],
+    "experienceTitle": "Deneyim",
+    "experiences": [
+      {
+        "year": "2026",
+        "title": "İşte Yapay Zeka Programı",
+        "sub": "Esenler Belediyesi · Teknopark Esenler",
+        "desc": "Yapay zeka odaklı uygulamalı program. Nvidia ve Türk Hava Yolları odaklı çevrimiçi staj simülasyonlarını takip ediyor, departman görevleri ve proje bazlı çalışmalarla ilerliyorum."
+      }
+    ],
+    "skillsTitle": "Beceriler",
+    "skillGroups": [
+      {
+        "title": "Anlatı & Oyun Tasarımı",
+        "items": [["Anlatı Tasarımı","Başlangıç-Orta",45],["Karakter & Duygu Tasarımı","Başlangıç-Orta",48],["Etkileşimli Hikâye Anlatımı","Başlangıç-Orta",42]]
+      },
+      {
+        "title": "Müzik & Anlatı",
+        "items": [["Müzik Kompozisyonu","Gelişiyor",55],["Vokal Performans","Profesyonel",88],["Müzikle Hikâye Kurma","Başlangıç-Orta",46]]
+      },
+      {
+        "title": "Teknoloji & Sistemler",
+        "items": [["Algoritma & Veri Yapıları","Başlangıç",30],["Programlama Temelleri","Başlangıç",22],["Sistem Düşüncesi","Başlangıç-Orta",48]]
+      },
+      {
+        "title": "Diller",
+        "items": [["Türkçe","Ana Dil",100],["İngilizce","B2",78],["İtalyanca","Başlangıç",20]]
+      }
+    ],
+    "writingsTitle": "Yazılar",
+    "writings": [],
+    "writingsEmpty": "Yakında yazılar burada olacak.",
+    "contactTitle": "İletişim",
+    "contact": {
+      "h1": "Birlikte bir şeyler",
+      "h2": "üretelim.",
+      "sub": "Oyun tasarımı ve anlatı alanında staj ve iş birliği fırsatlarına açığım.",
+      "emailLabel": "E-Posta"
+    },
+    "footer": "Istanbul, Türkiye"
+  },
+  "en": {
+    "nav": {"about":"About","projects":"Projects","experience":"Experience","skills":"Skills","writings":"Writing","contact":"Contact"},
+    "hero": {
+      "eyebrow": "Portfolio · 2026",
+      "tagline": "I design story-driven experiences shaped by narrative and music.",
+      "btn1": "See Projects",
+      "btn2": "Get in Touch"
+    },
+    "aboutTitle": "About Me",
+    "about": {
+      "p1": "I study Economics in English at Marmara University and Management Information Systems at Anadolu University. Working across disciplines has shown me that numbers, systems, and stories are deeply connected.",
+      "p2": "In game design, I focus on how narrative and music shape player experience. I see storytelling not just as something written, but as something felt.",
+      "p3": "I am currently developing my own projects while building both technical and creative skills. My goal is to create emotionally engaging and memorable player experiences."
+    },
+    "cards": [
+      {"label":"Education","value":"Marmara University","sub":"Economics (English) · 2023–2028 · Istanbul"},
+      {"label":"Education","value":"Anadolu University","sub":"Management Information Systems · 2024–2028"},
+      {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Spring 2027 · Bolzano, Italy"},
+      {"label":"Certificates","value":"BTK Academy","sub":"Algorithms, Programming, and Introduction to Data Structures"}
+    ],
+    "projectsTitle": "Projects",
+    "projects": [
+      {
+        "year": "2026",
+        "tag": "Game Design · Concept",
+        "name": "Dark of the Knight",
+        "desc": "A narrative-driven game set in a dark medieval world, focused on emotional tension and unspoken relationships. It explores a subtle system where player choices reshape meaning and emotional weight rather than outcomes.",
+        "pills": ["Narrative Design","Character Writing","Emotional Design","Music as Narrative"],
+        "status": "In Progress",
+        "statusType": "wip"
+      },
+      {
+        "year": "2026",
+        "tag": "Interactive Narrative · Concept",
+        "name": "Resonance",
+        "desc": "An interactive narrative concept where the player takes on a musical role and influences the tone of the story through choices. Music becomes an active part of the narrative.",
+        "pills": ["Interactive Narrative","Music-driven Design","Player Experience","Concept Development"],
+        "status": "Concept",
+        "statusType": "concept"
+      }
+    ],
+    "experienceTitle": "Experience",
+    "experiences": [
+      {
+        "year": "2026",
+        "title": "Iste Yapay Zeka Program",
+        "sub": "Esenler Municipality · Teknopark Esenler",
+        "desc": "A practice-based AI program. Following online internship simulation tracks focused on Nvidia and Turkish Airlines, progressing through department tasks and project-based work."
+      }
+    ],
+    "skillsTitle": "Skills",
+    "skillGroups": [
+      {
+        "title": "Narrative & Game Design",
+        "items": [["Narrative Design","Beginner-Intermediate",45],["Character & Emotional Design","Beginner-Intermediate",48],["Interactive Storytelling","Beginner-Intermediate",42]]
+      },
+      {
+        "title": "Music & Narrative",
+        "items": [["Music Composition","In Progress",55],["Vocal Performance","Professional",88],["Music-driven Storytelling","Beginner-Intermediate",46]]
+      },
+      {
+        "title": "Technology & Systems",
+        "items": [["Algorithms & Data Structures","Beginner",30],["Programming Fundamentals","Beginner",22],["Systems Thinking","Beginner-Intermediate",48]]
+      },
+      {
+        "title": "Languages",
+        "items": [["Turkish","Native",100],["English","B2",78],["Italian","Beginner",20]]
+      }
+    ],
+    "writingsTitle": "Writing",
+    "writings": [],
+    "writingsEmpty": "Posts coming soon.",
+    "contactTitle": "Contact",
+    "contact": {
+      "h1": "Let's build",
+      "h2": "something together.",
+      "sub": "Open to internship and collaboration opportunities in narrative and game design.",
+      "emailLabel": "Email"
+    },
+    "footer": "Istanbul, Türkiye"
+  }
+}
+</script>
+
+  <nav>
+    <a href="#hero" class="nav-logo">S.N.E.</a>
+    <ul class="nav-links">
+      <li><a id="nav-about" href="#about"></a></li>
+      <li><a id="nav-projects" href="#projects"></a></li>
+      <li><a id="nav-experience" href="#experience"></a></li>
+      <li><a id="nav-skills" href="#skills"></a></li>
+      <li><a id="nav-writings" href="#writings"></a></li>
+      <li><a id="nav-contact" href="#contact"></a></li>
+      <li>
+        <div class="lang-wrap">
+          <button class="lang-btn active" id="btn-tr">TR</button>
+          <button class="lang-btn" id="btn-en">EN</button>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <p class="hero-eyebrow" id="hero-eyebrow"></p>
+    <h1 class="hero-name">Semi Nur<br><em>Erdoğan</em></h1>
+    <p class="hero-tagline" id="hero-tagline"></p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary" id="hero-btn1"></a>
+      <a href="#contact" class="btn btn-secondary" id="hero-btn2"></a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title" id="about-title"></h2><div class="section-rule"></div></div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p id="about-p1"></p>
+        <p id="about-p2"></p>
+        <p id="about-p3"></p>
+      </div>
+      <div class="card-stack" id="about-cards"></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title" id="projects-title"></h2><div class="section-rule"></div></div>
+    <div class="projects-list" id="projects-list"></div>
+  </section>
+
+  <section id="experience">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title" id="experience-title"></h2><div class="section-rule"></div></div>
+    <div class="experience-list" id="experience-list"></div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title" id="skills-title"></h2><div class="section-rule"></div></div>
+    <div class="skills-grid" id="skills-grid"></div>
+  </section>
+
+  <section id="writings">
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title" id="writings-title"></h2><div class="section-rule"></div></div>
+    <div class="writings-list" id="writings-list"></div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header"><span class="section-num">06</span><h2 class="section-title" id="contact-title"></h2><div class="section-rule"></div></div>
+    <div class="contact-wrap">
+      <h3 class="contact-big"><span id="contact-h1"></span><br><em id="contact-h2"></em></h3>
+      <p class="contact-sub" id="contact-sub"></p>
+      <div class="contact-btns">
+        <a class="cta-link" href="mailto:seminur@example.com"><span class="cta-dot"></span><span id="email-label"></span></a>
+        <a class="cta-link" id="contact-linkedin" href="https://linkedin.com/in/SENIN-LINKEDIN-ADRESIN" target="_blank"><span class="cta-dot"></span>LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Semi Nur Erdoğan</p>
+    <p id="footer-loc"></p>
+  </footer>
+
+  <script>
+    var content = JSON.parse(document.getElementById('content-data').textContent);
+    var currentLang = 'tr';
+
+    function renderPage() {
+      var d = content[currentLang];
+      document.documentElement.lang = currentLang;
+      document.getElementById('nav-about').textContent = d.nav.about;
+      document.getElementById('nav-projects').textContent = d.nav.projects;
+      document.getElementById('nav-experience').textContent = d.nav.experience;
+      document.getElementById('nav-skills').textContent = d.nav.skills;
+      document.getElementById('nav-writings').textContent = d.nav.writings;
+      document.getElementById('nav-contact').textContent = d.nav.contact;
+      document.getElementById('hero-eyebrow').textContent = d.hero.eyebrow;
+      document.getElementById('hero-tagline').textContent = d.hero.tagline;
+      document.getElementById('hero-btn1').textContent = d.hero.btn1;
+      document.getElementById('hero-btn2').textContent = d.hero.btn2;
+      document.getElementById('about-title').textContent = d.aboutTitle;
+      document.getElementById('about-p1').textContent = d.about.p1;
+      document.getElementById('about-p2').textContent = d.about.p2;
+      document.getElementById('about-p3').textContent = d.about.p3;
+      document.getElementById('about-cards').innerHTML = d.cards.map(function(c) {
+        return '<div class="card"><div class="card-label">'+c.label+'</div><div class="card-value">'+c.value+'<small>'+c.sub+'</small></div></div>';
+      }).join('');
+      document.getElementById('projects-title').textContent = d.projectsTitle;
+      document.getElementById('projects-list').innerHTML = d.projects.map(function(p) {
+        return '<article class="project"><div class="project-year">'+p.year+'</div><div><span class="project-tag">'+p.tag+'</span><h3 class="project-name">'+p.name+'</h3><p class="project-desc">'+p.desc+'</p><div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div></div><div class="status '+p.statusType+'">'+p.status+'</div></article>';
+      }).join('');
+      document.getElementById('experience-title').textContent = d.experienceTitle;
+      document.getElementById('experience-list').innerHTML = d.experiences.map(function(e) {
+        return '<article class="exp-card"><div class="exp-year">'+e.year+'</div><div><h3 class="exp-title">'+e.title+'</h3><div class="exp-sub">'+e.sub+'</div><p class="exp-desc">'+e.desc+'</p></div><div></div></article>';
+      }).join('');
+      document.getElementById('skills-title').textContent = d.skillsTitle;
+      document.getElementById('skills-grid').innerHTML = d.skillGroups.map(function(g) {
+        return '<div class="skill-group"><h3>'+g.title+'</h3>'+g.items.map(function(item){
+          return '<div class="skill-item"><div class="skill-top"><span class="skill-name">'+item[0]+'</span><span class="skill-level">'+item[1]+'</span></div><div class="bar"><span style="width:'+item[2]+'%"></span></div></div>';
+        }).join('')+'</div>';
+      }).join('');
+      document.getElementById('writings-title').textContent = d.writingsTitle;
+      var wList = document.getElementById('writings-list');
+      if (d.writings.length === 0) {
+        wList.innerHTML = '<p style="color:var(--muted);font-family:\'DM Mono\',monospace;font-size:.75rem;letter-spacing:.12em;">'+d.writingsEmpty+'</p>';
+      } else {
+        wList.innerHTML = d.writings.map(function(w) {
+          return '<a class="writing-card" href="'+w.file+'"><div class="writing-date">'+w.date+'</div><div><span class="writing-tag">'+w.tag+'</span><h3 class="writing-title">'+w.title+'</h3><p class="writing-excerpt">'+w.excerpt+'</p></div><div class="writing-arrow">&#8594;</div></a>';
+        }).join('');
+      }
+      document.getElementById('contact-title').textContent = d.contactTitle;
+      document.getElementById('contact-h1').textContent = d.contact.h1;
+      document.getElementById('contact-h2').textContent = d.contact.h2;
+      document.getElementById('contact-sub').textContent = d.contact.sub;
+      document.getElementById('email-label').textContent = d.contact.emailLabel;
+      document.getElementById('footer-loc').textContent = d.footer;
+      document.getElementById('btn-tr').classList.toggle('active', currentLang === 'tr');
+      document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+    }
+
+    document.getElementById('btn-tr').addEventListener('click', function(){ currentLang = 'tr'; renderPage(); });
+    document.getElementById('btn-en').addEventListener('click', function(){ currentLang = 'en'; renderPage(); });
+    renderPage();
+  </script>
+</body>
+</html>
