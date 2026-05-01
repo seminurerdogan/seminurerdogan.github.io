@@ -27,8 +27,8 @@
     .lang-wrap{display:flex;border:1px solid var(--line);overflow:hidden}
     .lang-btn{padding:.35rem .7rem}
     .lang-btn.active{background:var(--gold);color:#fff}
-    section{padding:6rem 3rem;position:relative}
-    .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:3rem}
+    section{padding:4.5rem 3rem;position:relative}
+    .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
     .section-num{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.12em}
     .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.6vw,2.7rem)}
     .section-rule{flex:1;height:1px;background:var(--line);max-width:200px}
@@ -44,23 +44,26 @@
     .btn-primary{background:var(--gold);color:#fff}
     .btn-secondary{border:1px solid var(--line);color:var(--cream)}
     #about,#skills,#contact{background:var(--bg2)}
-    .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem}
-    .about-body p{margin-bottom:1.2rem;color:var(--muted);font-size:1.08rem}
+    #about{padding-bottom:3rem}
+    .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:start}
+    .about-body p{margin-bottom:1rem;color:var(--muted);font-size:1.08rem}
+    .about-body p:empty{display:none}
     .card-stack{display:grid;gap:1rem}
     .card{border:1px solid var(--line);background:var(--card-bg);padding:1.2rem 1.3rem}
     .card-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
     .card-value{color:var(--cream)}
     .card-value small{display:block;color:var(--muted);margin-top:.2rem}
-    .projects-list,.experience-list{display:flex;flex-direction:column;gap:1.5rem}
-    .project,.exp-card{display:grid;grid-template-columns:90px 1fr auto;gap:1.5rem;padding:2rem 0;border-top:1px solid var(--line)}
+    .projects-list,.experience-list{display:flex;flex-direction:column}
+    .project,.exp-card{display:grid;grid-template-columns:90px 1fr;gap:1.5rem;padding:1.8rem 0;border-top:1px solid var(--line)}
     .project:last-child,.exp-card:last-child{border-bottom:1px solid var(--line)}
     .project-year,.exp-year{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.1em;padding-top:.2rem}
     .project-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem}
     .project-name,.exp-title{font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:.5rem}
-    .project-desc,.exp-desc{color:var(--muted)}
+    .project-desc,.exp-desc{color:var(--muted);max-width:600px}
     .exp-sub{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem}
     .pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
-    .pill,.status{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid var(--line);color:var(--muted)}
+    .pill{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid var(--line);color:var(--muted)}
+    .status{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid var(--line);color:var(--muted);display:inline-block;margin-top:.8rem}
     .status.wip{color:var(--gold);border-color:rgba(154,111,42,.35)}
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
     .skill-group h3{font-family:'Playfair Display',serif;font-size:1.06rem;color:var(--gold2);font-style:italic;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
@@ -108,9 +111,9 @@
     },
     "aboutTitle": "Hakkımda",
     "about": {
-      "p1": "Samsun Devlet Opera ve Balesi'nde sekiz yıl korist olarak çalıştım, turneye çıktım, sahnede yer aldım. Şu an Marmara Üniversitesi'nde İngilizce İktisat, Anadolu Üniversitesi'nde Yönetim Bilişim Sistemleri okurken hikâyesini, dünya kurgusunu ve müziğini tek başıma geliştirdiğim Dark of the Knight adlı oyun projem üzerinde çalışıyorum. 2027 baharında Erasmus+ kapsamında İtalya'daki Free University of Bozen-Bolzano'da olacağım.",
-      "p2": "",
-      "p3": ""
+      "p1": "Hikâyesini, dünya kurgusunu ve müziğini tek başıma geliştirdiğim bir oyun projesi üzerinde çalışıyorum — Dark of the Knight.",
+      "p2": "Samsun Devlet Opera ve Balesi'nde sekiz yıl korist olarak çalıştım, turneye çıktım, sahnede yer aldım.",
+      "p3": "Marmara Üniversitesi'nde İngilizce İktisat, Anadolu Üniversitesi'nde Yönetim Bilişim Sistemleri okuyorum. 2027 baharında Erasmus+ kapsamında İtalya'daki Free University of Bozen-Bolzano'da olacağım."
     },
     "cards": [
       {"label":"Eğitim","value":"Marmara Üniversitesi","sub":"İktisat (İngilizce) · 2023–2028 · İstanbul"},
@@ -146,7 +149,7 @@
     "experiences": [
       {
         "year": "2026",
-        "title": "İş'te Yapay Zeka Programı",
+        "title": "İşte Yapay Zeka Programı",
         "sub": "Üretken Akademi · Esenler Belediyesi · Teknopark Esenler",
         "desc": "T.C. Sanayi ve Teknoloji Bakanlığı ve İstanbul Kalkınma Ajansı destekli program. Birden fazla şirket seçeneği arasından Nvidia ve Türk Hava Yolları simülasyonlarını seçtim. Yapay zeka okuryazarlığı, üretken YZ araçları, iş süreçlerinde yapay zeka ve proje uygulamaları modüllerini tamamladım. Nvidia ve Türk Hava Yolları için final departman projelerini tamamlama aşamasındayım."
       },
@@ -178,9 +181,9 @@
     },
     "aboutTitle": "About Me",
     "about": {
-      "p1": "I worked as a chorister at Samsun State Opera and Ballet for eight years, touring and performing on stage. I now study Economics in English at Marmara University and Management Information Systems at Anadolu University, while developing a game project entirely on my own — Dark of the Knight — writing the story, building the world, and composing the music. In Spring 2027, I will be at the Free University of Bozen-Bolzano on an Erasmus+ exchange.",
-      "p2": "",
-      "p3": ""
+      "p1": "I am developing a game project entirely on my own — Dark of the Knight — writing the story, building the world, and composing the music.",
+      "p2": "I worked as a chorister at Samsun State Opera and Ballet for eight years, touring and performing on stage.",
+      "p3": "I study Economics in English at Marmara University and Management Information Systems at Anadolu University. In Spring 2027, I will be at the Free University of Bozen-Bolzano on an Erasmus+ exchange."
     },
     "cards": [
       {"label":"Education","value":"Marmara University","sub":"Economics (English) · 2023–2028 · Istanbul"},
@@ -216,13 +219,13 @@
     "experiences": [
       {
         "year": "2026",
-        "title": "İş'te Yapay Zeka Program",
+        "title": "Iste Yapay Zeka Program",
         "sub": "Üretken Akademi · Esenler Municipality · Teknopark Esenler",
         "desc": "A program supported by the Turkish Ministry of Industry and Technology and Istanbul Development Agency. From multiple company tracks, I chose Nvidia and Turkish Airlines. Completed modules on AI literacy, generative AI tools, AI in business processes, and project applications. Currently completing the final department projects for both tracks."
       },
       {
         "year": "2011–2019",
-        "title": "Opera Singer",
+        "title": "Opera Artist",
         "sub": "Samsun State Opera and Ballet · Contracted",
         "desc": "Worked as a chorister alongside children's and youth choirs. Toured Afyon, Çanakkale, and İzmir, and performed in opera performances including Tosca and Carmen. Also trained in piano."
       }
@@ -335,13 +338,13 @@
       document.getElementById('about-p3').textContent=d.about.p3;
       document.getElementById('about-cards').innerHTML=d.cards.map(function(c){return '<div class="card"><div class="card-label">'+c.label+'</div><div class="card-value">'+c.value+'<small>'+c.sub+'</small></div></div>';}).join('');
       document.getElementById('projects-title').textContent=d.projectsTitle;
-      document.getElementById('projects-list').innerHTML=d.projects.map(function(p){return '<article class="project"><div class="project-year">'+p.year+'</div><div><span class="project-tag">'+p.tag+'</span><h3 class="project-name">'+p.name+'</h3><p class="project-desc">'+p.desc+'</p><div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div></div><div class="status '+p.statusType+'">'+p.status+'</div></article>';}).join('');
+      document.getElementById('projects-list').innerHTML=d.projects.map(function(p){return '<article class="project"><div class="project-year">'+p.year+'</div><div><span class="project-tag">'+p.tag+'</span><h3 class="project-name">'+p.name+'</h3><p class="project-desc">'+p.desc+'</p><div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div><span class="status '+p.statusType+'">'+p.status+'</span></div></article>';}).join('');
       document.getElementById('writings-title').textContent=d.writingsTitle;
       var wList=document.getElementById('writings-list');
       if(d.writings.length===0){wList.innerHTML='<p style="color:var(--muted);font-family:\'DM Mono\',monospace;font-size:.75rem;letter-spacing:.12em;">'+d.writingsEmpty+'</p>';}
       else{wList.innerHTML=d.writings.map(function(w){return '<a class="writing-card" href="'+w.file+'"><div class="writing-date">'+w.date+'</div><div><span class="writing-tag">'+w.tag+'</span><h3 class="writing-title">'+w.title+'</h3><p class="writing-excerpt">'+w.excerpt+'</p></div><div class="writing-arrow">&#8594;</div></a>';}).join('');}
       document.getElementById('experience-title').textContent=d.experienceTitle;
-      document.getElementById('experience-list').innerHTML=d.experiences.map(function(e){return '<article class="exp-card"><div class="exp-year">'+e.year+'</div><div><h3 class="exp-title">'+e.title+'</h3><div class="exp-sub">'+e.sub+'</div><p class="exp-desc">'+e.desc+'</p></div><div></div></article>';}).join('');
+      document.getElementById('experience-list').innerHTML=d.experiences.map(function(e){return '<article class="exp-card"><div class="exp-year">'+e.year+'</div><div><h3 class="exp-title">'+e.title+'</h3><div class="exp-sub">'+e.sub+'</div><p class="exp-desc">'+e.desc+'</p></div></article>';}).join('');
       document.getElementById('skills-title').textContent=d.skillsTitle;
       document.getElementById('skills-grid').innerHTML=d.skillGroups.map(function(g){return '<div class="skill-group"><h3>'+g.title+'</h3>'+g.items.map(function(item){return '<div class="skill-item"><div class="skill-top"><span class="skill-name">'+item[0]+'</span><span class="skill-level">'+item[1]+'</span></div><div class="bar"><span style="width:'+item[2]+'%"></span></div></div>';}).join('')+'</div>';}).join('');
       document.getElementById('contact-title').textContent=d.contactTitle;
