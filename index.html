@@ -27,7 +27,14 @@
     .lang-wrap{display:flex;border:1px solid var(--line);overflow:hidden}
     .lang-btn{padding:.35rem .7rem}
     .lang-btn.active{background:var(--gold);color:#fff}
+    .nav-right{display:flex;align-items:center;gap:1.5rem}
+    .nav-links a.active{color:var(--gold2)}
+    .nav-toggle{display:none;background:none;border:1px solid var(--line);color:var(--gold);font-family:'DM Mono',monospace;font-size:.85rem;padding:.3rem .6rem;cursor:pointer}
     section{padding:4.5rem 3rem;position:relative}
+    section.view{display:none;padding-top:7rem;min-height:70vh}
+    section.view.active{display:block;animation:viewFade .4s ease}
+    #hero.view.active{display:flex}
+    @keyframes viewFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
     .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
     .section-num{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.12em}
     .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.6vw,2.7rem)}
@@ -94,8 +101,15 @@
     .writing-card:hover .writing-arrow{opacity:1;transform:translateX(4px)}
     footer{padding:1.5rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     footer p{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-    @media(max-width:900px){nav{padding:1rem 1.2rem}section{padding:5rem 1.2rem}.about-grid{grid-template-columns:1fr}.project,.exp-card,.writing-card{grid-template-columns:1fr}.writing-arrow{display:none}footer{padding:1.2rem;flex-direction:column;text-align:center}}
-    @media(max-width:600px){.nav-links li:not(:last-child){display:none}.hero-name{font-size:3rem}}
+    @media(max-width:900px){
+      nav{padding:1rem 1.2rem;background:linear-gradient(to bottom,rgba(247,242,234,.98),rgba(247,242,234,.92))}
+      .nav-toggle{display:block}
+      .nav-right{gap:.8rem}
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1.1rem;background:var(--bg);border-bottom:1px solid var(--line);padding:1.2rem;box-shadow:0 14px 28px rgba(26,18,8,.08)}
+      nav.open .nav-links{display:flex}
+      section{padding:5rem 1.2rem}.about-grid{grid-template-columns:1fr}.project,.exp-card,.writing-card{grid-template-columns:1fr}.writing-arrow{display:none}footer{padding:1.2rem;flex-direction:column;text-align:center}
+    }
+    @media(max-width:600px){.hero-name{font-size:3rem}}
   </style>
 </head>
 <body>
@@ -251,20 +265,23 @@
 }
 </script>
 
-  <nav>
+  <nav id="site-nav">
     <a href="#hero" class="nav-logo">S.N.E.</a>
-    <ul class="nav-links">
-      <li><a id="nav-about" href="#about"></a></li>
-      <li><a id="nav-projects" href="#projects"></a></li>
-      <li><a id="nav-writings" href="#writings"></a></li>
-      <li><a id="nav-experience" href="#experience"></a></li>
-      <li><a id="nav-skills" href="#skills"></a></li>
-      <li><a id="nav-contact" href="#contact"></a></li>
-      <li><div class="lang-wrap"><button class="lang-btn active" id="btn-tr">TR</button><button class="lang-btn" id="btn-en">EN</button></div></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a id="nav-about" href="#about"></a></li>
+        <li><a id="nav-projects" href="#projects"></a></li>
+        <li><a id="nav-writings" href="#writings"></a></li>
+        <li><a id="nav-experience" href="#experience"></a></li>
+        <li><a id="nav-skills" href="#skills"></a></li>
+        <li><a id="nav-contact" href="#contact"></a></li>
+      </ul>
+      <div class="lang-wrap"><button class="lang-btn active" id="btn-tr">TR</button><button class="lang-btn" id="btn-en">EN</button></div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menü">&#9776;</button>
+    </div>
   </nav>
 
-  <section id="hero">
+  <section id="hero" class="view">
     <p class="hero-eyebrow" id="hero-eyebrow"></p>
     <h1 class="hero-name">Semi Nur<br><em>Erdoğan</em></h1>
     <p class="hero-tagline" id="hero-tagline"></p>
@@ -274,7 +291,7 @@
     </div>
   </section>
 
-  <section id="about">
+  <section id="about" class="view">
     <div class="section-header"><span class="section-num">01</span><h2 class="section-title" id="about-title"></h2><div class="section-rule"></div></div>
     <div class="about-grid">
       <div class="about-body">
@@ -286,27 +303,27 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="view">
     <div class="section-header"><span class="section-num">02</span><h2 class="section-title" id="projects-title"></h2><div class="section-rule"></div></div>
     <div class="projects-list" id="projects-list"></div>
   </section>
 
-  <section id="writings">
+  <section id="writings" class="view">
     <div class="section-header"><span class="section-num">03</span><h2 class="section-title" id="writings-title"></h2><div class="section-rule"></div></div>
     <div class="writings-list" id="writings-list"></div>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="view">
     <div class="section-header"><span class="section-num">04</span><h2 class="section-title" id="experience-title"></h2><div class="section-rule"></div></div>
     <div class="experience-list" id="experience-list"></div>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="view">
     <div class="section-header"><span class="section-num">05</span><h2 class="section-title" id="skills-title"></h2><div class="section-rule"></div></div>
     <div class="skills-grid" id="skills-grid"></div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="view">
     <div class="section-header"><span class="section-num">06</span><h2 class="section-title" id="contact-title"></h2><div class="section-rule"></div></div>
     <div class="contact-wrap">
       <h3 class="contact-big"><span id="contact-h1"></span><br><em id="contact-h2"></em></h3>
@@ -370,6 +387,28 @@
     document.getElementById('btn-tr').addEventListener('click',function(){currentLang='tr';renderPage();});
     document.getElementById('btn-en').addEventListener('click',function(){currentLang='en';renderPage();});
     renderPage();
+
+    /* ── Hash router: her bölüm bir sekme, sayfa yenilenmeden geçiş ── */
+    var navEl=document.getElementById('site-nav');
+    var viewIds=['hero','about','projects','writings','experience','skills','contact'];
+    var routeAliases={'':'hero','home':'hero','writing':'writings'};
+    function currentRoute(){
+      var h=decodeURIComponent(location.hash.replace(/^#\/?/,''));
+      var parts=h.split('/');
+      var v=routeAliases.hasOwnProperty(parts[0])?routeAliases[parts[0]]:parts[0];
+      if(viewIds.indexOf(v)===-1)v='hero';
+      return {view:v,detail:parts[1]||null};
+    }
+    function showView(){
+      var r=currentRoute();
+      [].forEach.call(document.querySelectorAll('section.view'),function(s){s.classList.toggle('active',s.id===r.view);});
+      [].forEach.call(document.querySelectorAll('.nav-links a'),function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+r.view);});
+      navEl.classList.remove('open');
+      window.scrollTo(0,0);
+    }
+    document.getElementById('nav-toggle').addEventListener('click',function(){navEl.classList.toggle('open');});
+    window.addEventListener('hashchange',showView);
+    showView();
   </script>
 </body>
 </html>
