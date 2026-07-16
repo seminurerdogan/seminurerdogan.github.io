@@ -71,8 +71,6 @@
     .skill-top{display:flex;justify-content:space-between;gap:1rem;margin-bottom:.35rem}
     .skill-name{color:var(--cream)}
     .skill-level{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--gold)}
-    .bar{height:2px;background:rgba(0,0,0,.08);position:relative}
-    .bar span{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(to right,var(--gold),var(--gold2))}
     .contact-wrap{max-width:700px}
     .contact-big{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.8rem);line-height:1.1;margin-bottom:1rem}
     .contact-big em{font-style:italic;color:var(--gold2)}
@@ -105,21 +103,20 @@
     "nav": {"about":"Hakkımda","projects":"Projeler","writings":"Yazılar","experience":"Deneyim","skills":"Beceriler","contact":"İletişim"},
     "hero": {
       "eyebrow": "Anlatı Yazarlığı · Oyun Tasarımı · Müzik",
-      "tagline": "Hikâye odaklı deneyimler tasarlıyorum — anlatı ve müzikle oyuncunun duygusunu şekillendiriyorum.",
+      "tagline": "Oyunlar için hikâye yazıyor ve müzik besteliyorum.",
       "btn1": "Projeleri Gör",
       "btn2": "İletişime Geç"
     },
     "aboutTitle": "Hakkımda",
     "about": {
-      "p1": "Hikâyesini, dünya kurgusunu ve müziğini tek başıma geliştirdiğim bir oyun projesi üzerinde çalışıyorum — Dark of the Knight.",
-      "p2": "Samsun Devlet Opera ve Balesi'nde sekiz yıl korist olarak çalıştım, turneye çıktım, sahnede yer aldım.",
-      "p3": "Marmara Üniversitesi'nde İngilizce İktisat, Anadolu Üniversitesi'nde Yönetim Bilişim Sistemleri okuyorum. 2027 baharında Erasmus+ kapsamında İtalya'daki Free University of Bozen-Bolzano'da olacağım."
+      "p1": "Samsun Devlet Opera ve Balesi'nde sekiz yıl korist olarak sahne aldım. Şimdi hikâyesini, dünya kurgusunu ve müziğini tek başıma yaptığım oyunlar geliştiriyorum.",
+      "p2": "Hem oyun yazarlığı hem oyun müziğiyle uğraşıyorum. Hikâyede temayı doğrudan diyalogla anlatmak yerine oyunun mekaniğine yedirmeyi seviyorum. Hedefim narrative-odaklı oyunlarda yazar ve besteci olarak çalışmak.",
+      "p3": "Marmara Üniversitesi'nde İktisat, Anadolu Üniversitesi'nde Yönetim Bilişim Sistemleri okuyorum. 2027 baharında Erasmus+ ile Free University of Bozen-Bolzano'da olacağım."
     },
     "cards": [
       {"label":"Eğitim","value":"Marmara Üniversitesi","sub":"İktisat (İngilizce) · 2023–2028 · İstanbul"},
       {"label":"Eğitim","value":"Anadolu Üniversitesi","sub":"Yönetim Bilişim Sistemleri · 2024–2028"},
-      {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Bahar 2027 · Bolzano, İtalya"},
-      {"label":"Sertifikalar","value":"BTK Akademi","sub":"Algoritma, Programlama ve Veri Yapılarına Giriş"}
+      {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Bahar 2027 · Bolzano, İtalya"}
     ],
     "projectsTitle": "Projeler",
     "projects": [
@@ -148,12 +145,6 @@
     "experienceTitle": "Deneyim",
     "experiences": [
       {
-        "year": "2026",
-        "title": "İşte Yapay Zeka Programı",
-        "sub": "Üretken Akademi · Esenler Belediyesi · Teknopark Esenler",
-        "desc": "T.C. Sanayi ve Teknoloji Bakanlığı ve İstanbul Kalkınma Ajansı destekli program. Birden fazla şirket seçeneği arasından Nvidia ve Türk Hava Yolları simülasyonlarını seçtim. Yapay zeka okuryazarlığı, üretken YZ araçları, iş süreçlerinde yapay zeka ve proje uygulamaları modüllerini tamamladım. Nvidia ve Türk Hava Yolları için final departman projelerini tamamlama aşamasındayım."
-      },
-      {
         "year": "2011–2019",
         "title": "Opera Sanatçısı",
         "sub": "Samsun Devlet Opera ve Balesi · Sözleşmeli",
@@ -162,10 +153,10 @@
     ],
     "skillsTitle": "Beceriler",
     "skillGroups": [
-      {"title":"Anlatı & Oyun Tasarımı","items":[["Anlatı Tasarımı","Başlangıç-Orta",45],["Karakter & Duygu Tasarımı","Başlangıç-Orta",48],["Etkileşimli Hikâye Anlatımı","Başlangıç-Orta",42]]},
-      {"title":"Müzik & Anlatı","items":[["Müzik Kompozisyonu","Gelişiyor",55],["Vokal Performans","Profesyonel",88],["Müzikle Hikâye Kurma","Başlangıç-Orta",46]]},
-      {"title":"Teknoloji & Sistemler","items":[["Algoritma & Veri Yapıları","Başlangıç",30],["Programlama Temelleri","Başlangıç",22],["Sistem Düşüncesi","Başlangıç-Orta",48]]},
-      {"title":"Diller","items":[["Türkçe","Ana Dil",100],["İngilizce","B2",78],["İtalyanca","Başlangıç",20]]}
+      {"title":"Anlatı & Oyun Tasarımı","items":["Anlatı Tasarımı","Karakter & Duygu Tasarımı","Etkileşimli Hikâye Anlatımı"]},
+      {"title":"Müzik & Anlatı","items":["Müzik Kompozisyonu","Vokal Performans","Müzikle Hikâye Kurma"]},
+      {"title":"Teknoloji & Sistemler","items":["Algoritma & Veri Yapıları","Programlama Temelleri","Sistem Düşüncesi"]},
+      {"title":"Diller","items":[{"name":"Türkçe","level":"Ana Dil"},{"name":"İngilizce","level":"B2"},{"name":"İtalyanca","level":"Başlangıç"}]}
     ],
     "contactTitle": "İletişim",
     "contact": {"h1":"Birlikte bir şeyler","h2":"üretelim.","sub":"Oyun tasarımı ve anlatı alanında staj ve iş birliği fırsatlarına açığım.","emailLabel":"E-Posta"},
@@ -175,21 +166,20 @@
     "nav": {"about":"About","projects":"Projects","writings":"Writing","experience":"Experience","skills":"Skills","contact":"Contact"},
     "hero": {
       "eyebrow": "Narrative Writing · Game Design · Music",
-      "tagline": "I design story-driven experiences shaped by narrative and music.",
+      "tagline": "I write stories and compose music for games.",
       "btn1": "See Projects",
       "btn2": "Get in Touch"
     },
     "aboutTitle": "About Me",
     "about": {
-      "p1": "I am developing a game project entirely on my own — Dark of the Knight — writing the story, building the world, and composing the music.",
-      "p2": "I worked as a chorister at Samsun State Opera and Ballet for eight years, touring and performing on stage.",
-      "p3": "I study Economics in English at Marmara University and Management Information Systems at Anadolu University. In Spring 2027, I will be at the Free University of Bozen-Bolzano on an Erasmus+ exchange."
+      "p1": "I performed for eight years as a choir member at the Samsun State Opera and Ballet. I'm now developing games where I write the story, build the world, and compose the music myself.",
+      "p2": "I work on both game writing and game music. In my writing, I like to build theme into the game's mechanics rather than state it through dialogue. My goal is to work as a writer and composer on narrative-driven games.",
+      "p3": "I study Economics at Marmara University and Management Information Systems at Anadolu University. In spring 2027 I'll join the Free University of Bozen-Bolzano through Erasmus+."
     },
     "cards": [
       {"label":"Education","value":"Marmara University","sub":"Economics (English) · 2023–2028 · Istanbul"},
       {"label":"Education","value":"Anadolu University","sub":"Management Information Systems · 2024–2028"},
-      {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Spring 2027 · Bolzano, Italy"},
-      {"label":"Certificates","value":"BTK Academy","sub":"Algorithms, Programming, and Introduction to Data Structures"}
+      {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Spring 2027 · Bolzano, Italy"}
     ],
     "projectsTitle": "Projects",
     "projects": [
@@ -218,12 +208,6 @@
     "experienceTitle": "Experience",
     "experiences": [
       {
-        "year": "2026",
-        "title": "Iste Yapay Zeka Program",
-        "sub": "Üretken Akademi · Esenler Municipality · Teknopark Esenler",
-        "desc": "A program supported by the Turkish Ministry of Industry and Technology and Istanbul Development Agency. From multiple company tracks, I chose Nvidia and Turkish Airlines. Completed modules on AI literacy, generative AI tools, AI in business processes, and project applications. Currently completing the final department projects for both tracks."
-      },
-      {
         "year": "2011–2019",
         "title": "Opera Artist",
         "sub": "Samsun State Opera and Ballet · Contracted",
@@ -232,10 +216,10 @@
     ],
     "skillsTitle": "Skills",
     "skillGroups": [
-      {"title":"Narrative & Game Design","items":[["Narrative Design","Beginner-Intermediate",45],["Character & Emotional Design","Beginner-Intermediate",48],["Interactive Storytelling","Beginner-Intermediate",42]]},
-      {"title":"Music & Narrative","items":[["Music Composition","In Progress",55],["Vocal Performance","Professional",88],["Music-driven Storytelling","Beginner-Intermediate",46]]},
-      {"title":"Technology & Systems","items":[["Algorithms & Data Structures","Beginner",30],["Programming Fundamentals","Beginner",22],["Systems Thinking","Beginner-Intermediate",48]]},
-      {"title":"Languages","items":[["Turkish","Native",100],["English","B2",78],["Italian","Beginner",20]]}
+      {"title":"Narrative & Game Design","items":["Narrative Design","Character & Emotional Design","Interactive Storytelling"]},
+      {"title":"Music & Narrative","items":["Music Composition","Vocal Performance","Music-driven Storytelling"]},
+      {"title":"Technology & Systems","items":["Algorithms & Data Structures","Programming Fundamentals","Systems Thinking"]},
+      {"title":"Languages","items":[{"name":"Turkish","level":"Native"},{"name":"English","level":"B2"},{"name":"Italian","level":"Beginner"}]}
     ],
     "contactTitle": "Contact",
     "contact": {"h1":"Let's build","h2":"something together.","sub":"Open to internship and collaboration opportunities in narrative and game design.","emailLabel":"Email"},
@@ -346,7 +330,7 @@
       document.getElementById('experience-title').textContent=d.experienceTitle;
       document.getElementById('experience-list').innerHTML=d.experiences.map(function(e){return '<article class="exp-card"><div class="exp-year">'+e.year+'</div><div><h3 class="exp-title">'+e.title+'</h3><div class="exp-sub">'+e.sub+'</div><p class="exp-desc">'+e.desc+'</p></div></article>';}).join('');
       document.getElementById('skills-title').textContent=d.skillsTitle;
-      document.getElementById('skills-grid').innerHTML=d.skillGroups.map(function(g){return '<div class="skill-group"><h3>'+g.title+'</h3>'+g.items.map(function(item){return '<div class="skill-item"><div class="skill-top"><span class="skill-name">'+item[0]+'</span><span class="skill-level">'+item[1]+'</span></div><div class="bar"><span style="width:'+item[2]+'%"></span></div></div>';}).join('')+'</div>';}).join('');
+      document.getElementById('skills-grid').innerHTML=d.skillGroups.map(function(g){return '<div class="skill-group"><h3>'+g.title+'</h3>'+g.items.map(function(item){if(typeof item==='string'){return '<div class="skill-item"><span class="skill-name">'+item+'</span></div>';}return '<div class="skill-item"><div class="skill-top"><span class="skill-name">'+item.name+'</span><span class="skill-level">'+item.level+'</span></div></div>';}).join('')+'</div>';}).join('');
       document.getElementById('contact-title').textContent=d.contactTitle;
       document.getElementById('contact-h1').textContent=d.contact.h1;
       document.getElementById('contact-h2').textContent=d.contact.h2;
