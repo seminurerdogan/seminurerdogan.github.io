@@ -74,6 +74,19 @@
     .status.wip{color:var(--gold);border-color:rgba(154,111,42,.35)}
     .status.demo{background:var(--gold);color:#fff;border-color:var(--gold);text-decoration:none;margin-left:.4rem}
     .status.demo-ph{border-style:dashed;color:var(--gold);border-color:rgba(154,111,42,.45);margin-left:.4rem}
+    .project-name a{color:inherit;text-decoration:none;transition:color .2s}
+    .project-name a:hover{color:var(--gold2)}
+    .project-more{display:inline-block;margin-top:1rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+    .project-more:hover{color:var(--gold2)}
+    #project-detail{display:none}
+    .back-btn{display:inline-block;margin-bottom:1.6rem;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+    .back-btn:hover{color:var(--gold2)}
+    .detail-name{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0 1rem}
+    .detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin:2.2rem 0}
+    .detail-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+    .detail-grid p{color:var(--muted)}
+    .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:1rem}
+    .media-ph{border:1px dashed rgba(154,111,42,.45);background:var(--card-bg);min-height:160px;display:flex;align-items:center;justify-content:center;text-align:center;padding:1.2rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);line-height:1.8}
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
     .skill-group h3{font-family:'Playfair Display',serif;font-size:1.06rem;color:var(--gold2);font-style:italic;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
     .skill-item{margin-bottom:1rem}
@@ -136,8 +149,10 @@
       {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Bahar 2027 · Bolzano, İtalya"}
     ],
     "projectsTitle": "Projeler",
+    "projectDetail": {"overview":"Genel Bakış","role":"Benim Rolüm","approach":"Anlatı Yaklaşımı","media":"Medya","galleryPh":"Görsel galerisi — placeholder (görseller eklenecek)","audioPh":"Ses oynatıcı — placeholder (SoundCloud / YouTube embed eklenecek)","back":"← Tüm Projeler","more":"Detaylar"},
     "projects": [
       {
+        "slug": "echo",
         "year": "2026",
         "tag": "2D Stealth / Narrative Puzzle · GDevelop",
         "name": "ECHO — The City Remembers",
@@ -145,25 +160,42 @@
         "pills": ["Anlatı Tasarımı","Dünya Kurgusu","Müzik Kompozisyonu","GDevelop"],
         "status": "Oynanabilir Demo",
         "statusType": "wip",
-        "demo": {"url": "", "label": "Demoyu Oyna", "placeholder": "Demo Linki Eklenecek"}
+        "demo": {"url": "", "label": "Demoyu Oyna", "placeholder": "Demo Linki Eklenecek"},
+        "detail": {
+          "overview": "Müziğin yasaklandığı distopik bir şehirde geçen 2D atmosferik stealth/narrative puzzle. GDevelop'ta geliştiriliyor; oynanabilir bir demosu var.",
+          "role": "Hikâye, dünya kurgusu ve müzik tamamen bana ait. Oyunu GDevelop'ta kendim geliştiriyorum.",
+          "approach": "Tema doğrudan diyalogla değil mekanikle anlatılıyor: müziğin yasak olduğu bir şehirde ses, hem oynanışın hem anlatının merkezinde."
+        }
       },
       {
+        "slug": "dark-of-the-knight",
         "year": "2026",
         "tag": "Oyun Tasarımı · Devam Ediyor",
         "name": "Dark of the Knight",
         "desc": "Kurgusal karanlık bir orta çağ dünyasında geçen, duygusal gerilim ve söylenmemiş ilişkiler üzerine kurulu anlatı odaklı oyun. Hikâye, dünya kurgusu ve müzik tamamen bana ait.",
         "pills": ["Anlatı Tasarımı","Karakter Yazarlığı","Duygusal Tasarım","Anlatı Aracı Olarak Müzik"],
         "status": "Devam Ediyor",
-        "statusType": "wip"
+        "statusType": "wip",
+        "detail": {
+          "overview": "Kurgusal karanlık bir orta çağ dünyasında geçen, duygusal gerilim ve söylenmemiş ilişkiler üzerine kurulu anlatı odaklı oyun.",
+          "role": "Hikâye, dünya kurgusu ve müzik tamamen bana ait.",
+          "approach": "Duygusal gerilim söylenenlerden değil söylenmeyenlerden kuruluyor; müzik anlatının taşıyıcılarından biri olarak kullanılıyor."
+        }
       },
       {
+        "slug": "resonance",
         "year": "2026",
         "tag": "İnteraktif Anlatı · Konsept",
         "name": "Resonance",
         "desc": "Oyuncunun müziksel bir rol üstlendiği ve seçimleriyle hikâyenin tonunu etkilediği interaktif anlatı konsepti.",
         "pills": ["Etkileşimli Anlatı","Müzik Odaklı Tasarım","Oyuncu Deneyimi"],
         "status": "Konsept",
-        "statusType": "concept"
+        "statusType": "concept",
+        "detail": {
+          "overview": "Oyuncunun müziksel bir rol üstlendiği ve seçimleriyle hikâyenin tonunu etkilediği interaktif anlatı konsepti.",
+          "role": "Konsept tasarımı, anlatı ve müzik yaklaşımı bana ait.",
+          "approach": "Seçimler hikâyenin yalnızca yönünü değil tonunu da değiştiriyor; müzik, oyuncunun ifade aracı olarak tasarlanıyor."
+        }
       }
     ],
     "writingsTitle": "Yazılar",
@@ -209,8 +241,10 @@
       {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Spring 2027 · Bolzano, Italy"}
     ],
     "projectsTitle": "Projects",
+    "projectDetail": {"overview":"Overview","role":"My Role","approach":"Narrative Approach","media":"Media","galleryPh":"Image gallery — placeholder (visuals to be added)","audioPh":"Audio player — placeholder (SoundCloud / YouTube embed to be added)","back":"← All Projects","more":"Details"},
     "projects": [
       {
+        "slug": "echo",
         "year": "2026",
         "tag": "2D Stealth / Narrative Puzzle · GDevelop",
         "name": "ECHO — The City Remembers",
@@ -218,25 +252,42 @@
         "pills": ["Narrative Design","World-building","Music Composition","GDevelop"],
         "status": "Playable Demo",
         "statusType": "wip",
-        "demo": {"url": "", "label": "Play the Demo", "placeholder": "Demo Link — To Be Added"}
+        "demo": {"url": "", "label": "Play the Demo", "placeholder": "Demo Link — To Be Added"},
+        "detail": {
+          "overview": "A 2D atmospheric stealth and narrative puzzle game set in a dystopian city where music is banned. Built in GDevelop, with a playable demo.",
+          "role": "Story, world-building, and music are all my own. I'm also building the game myself in GDevelop.",
+          "approach": "The theme is told through mechanics rather than dialogue: in a city where music is banned, sound sits at the center of both play and story."
+        }
       },
       {
+        "slug": "dark-of-the-knight",
         "year": "2026",
         "tag": "Game Design · In Progress",
         "name": "Dark of the Knight",
         "desc": "A narrative-driven game set in a dark medieval world, built around emotional tension and unspoken relationships. Story, world-building, and music are all my own.",
         "pills": ["Narrative Design","Character Writing","Emotional Design","Music as Narrative"],
         "status": "In Progress",
-        "statusType": "wip"
+        "statusType": "wip",
+        "detail": {
+          "overview": "A narrative-driven game set in a dark medieval world, built around emotional tension and unspoken relationships.",
+          "role": "Story, world-building, and music are all my own.",
+          "approach": "The emotional tension comes from what is left unsaid rather than what is spoken; music carries part of the narrative."
+        }
       },
       {
+        "slug": "resonance",
         "year": "2026",
         "tag": "Interactive Narrative · Concept",
         "name": "Resonance",
         "desc": "An interactive narrative concept where the player takes on a musical role and influences the tone of the story through choices.",
         "pills": ["Interactive Narrative","Music-driven Design","Player Experience"],
         "status": "Concept",
-        "statusType": "concept"
+        "statusType": "concept",
+        "detail": {
+          "overview": "An interactive narrative concept where the player takes on a musical role and influences the tone of the story through choices.",
+          "role": "Concept design, narrative, and musical approach are my own.",
+          "approach": "Choices change not only the direction of the story but also its tone; music is designed as the player's means of expression."
+        }
       }
     ],
     "writingsTitle": "Writing",
@@ -306,6 +357,7 @@
   <section id="projects" class="view">
     <div class="section-header"><span class="section-num">02</span><h2 class="section-title" id="projects-title"></h2><div class="section-rule"></div></div>
     <div class="projects-list" id="projects-list"></div>
+    <div id="project-detail"></div>
   </section>
 
   <section id="writings" class="view">
@@ -365,7 +417,9 @@
       document.getElementById('projects-list').innerHTML=d.projects.map(function(p){
         var demo='';
         if(p.demo){demo=p.demo.url?' <a class="status demo" href="'+p.demo.url+'" target="_blank" rel="noopener">'+p.demo.label+' &#8594;</a>':' <span class="status demo-ph">'+p.demo.placeholder+'</span>';}
-        return '<article class="project"><div class="project-year">'+p.year+'</div><div><span class="project-tag">'+p.tag+'</span><h3 class="project-name">'+p.name+'</h3><p class="project-desc">'+p.desc+'</p><div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div><span class="status '+p.statusType+'">'+p.status+'</span>'+demo+'</div></article>';
+        var nameHtml=p.slug?'<a href="#projects/'+p.slug+'">'+p.name+'</a>':p.name;
+        var more=(p.slug&&p.detail)?'<div><a class="project-more" href="#projects/'+p.slug+'">'+d.projectDetail.more+' &#8594;</a></div>':'';
+        return '<article class="project"><div class="project-year">'+p.year+'</div><div><span class="project-tag">'+p.tag+'</span><h3 class="project-name">'+nameHtml+'</h3><p class="project-desc">'+p.desc+'</p><div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div><span class="status '+p.statusType+'">'+p.status+'</span>'+demo+more+'</div></article>';
       }).join('');
       document.getElementById('writings-title').textContent=d.writingsTitle;
       var wList=document.getElementById('writings-list');
@@ -384,8 +438,8 @@
       document.getElementById('btn-tr').classList.toggle('active',currentLang==='tr');
       document.getElementById('btn-en').classList.toggle('active',currentLang==='en');
     }
-    document.getElementById('btn-tr').addEventListener('click',function(){currentLang='tr';renderPage();});
-    document.getElementById('btn-en').addEventListener('click',function(){currentLang='en';renderPage();});
+    document.getElementById('btn-tr').addEventListener('click',function(){currentLang='tr';renderPage();showView();});
+    document.getElementById('btn-en').addEventListener('click',function(){currentLang='en';renderPage();showView();});
     renderPage();
 
     /* ── Hash router: her bölüm bir sekme, sayfa yenilenmeden geçiş ── */
@@ -399,10 +453,35 @@
       if(viewIds.indexOf(v)===-1)v='hero';
       return {view:v,detail:parts[1]||null};
     }
+    function renderProjectDetail(slug){
+      var d=content[currentLang],L=d.projectDetail;
+      var el=document.getElementById('project-detail');
+      var list=document.getElementById('projects-list');
+      var p=null;
+      if(slug){for(var i=0;i<d.projects.length;i++){if(d.projects[i].slug===slug){p=d.projects[i];break;}}}
+      if(!p||!p.detail){el.innerHTML='';el.style.display='none';list.style.display='';return;}
+      list.style.display='none';
+      el.style.display='block';
+      var demo='';
+      if(p.demo){demo=p.demo.url?' <a class="status demo" href="'+p.demo.url+'" target="_blank" rel="noopener">'+p.demo.label+' &#8594;</a>':' <span class="status demo-ph">'+p.demo.placeholder+'</span>';}
+      el.innerHTML='<a class="back-btn" href="#projects">'+L.back+'</a>'
+        +'<div><span class="project-tag">'+p.tag+'</span></div>'
+        +'<h3 class="detail-name">'+p.name+'</h3>'
+        +'<div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div>'
+        +'<span class="status '+p.statusType+'">'+p.status+'</span>'+demo
+        +'<div class="detail-grid">'
+        +'<div><h4 class="detail-label">'+L.overview+'</h4><p>'+p.detail.overview+'</p></div>'
+        +'<div><h4 class="detail-label">'+L.role+'</h4><p>'+p.detail.role+'</p></div>'
+        +'<div><h4 class="detail-label">'+L.approach+'</h4><p>'+p.detail.approach+'</p></div>'
+        +'</div>'
+        +'<h4 class="detail-label">'+L.media+'</h4>'
+        +'<div class="media-grid"><div class="media-ph">'+L.galleryPh+'</div><div class="media-ph">'+L.audioPh+'</div></div>';
+    }
     function showView(){
       var r=currentRoute();
       [].forEach.call(document.querySelectorAll('section.view'),function(s){s.classList.toggle('active',s.id===r.view);});
       [].forEach.call(document.querySelectorAll('.nav-links a'),function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+r.view);});
+      renderProjectDetail(r.view==='projects'?r.detail:null);
       navEl.classList.remove('open');
       window.scrollTo(0,0);
     }
