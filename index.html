@@ -65,6 +65,8 @@
     .pill{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid var(--line);color:var(--muted)}
     .status{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid var(--line);color:var(--muted);display:inline-block;margin-top:.8rem}
     .status.wip{color:var(--gold);border-color:rgba(154,111,42,.35)}
+    .status.demo{background:var(--gold);color:#fff;border-color:var(--gold);text-decoration:none;margin-left:.4rem}
+    .status.demo-ph{border-style:dashed;color:var(--gold);border-color:rgba(154,111,42,.45);margin-left:.4rem}
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
     .skill-group h3{font-family:'Playfair Display',serif;font-size:1.06rem;color:var(--gold2);font-style:italic;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
     .skill-item{margin-bottom:1rem}
@@ -120,6 +122,16 @@
     ],
     "projectsTitle": "Projeler",
     "projects": [
+      {
+        "year": "2026",
+        "tag": "2D Stealth / Narrative Puzzle · GDevelop",
+        "name": "ECHO — The City Remembers",
+        "desc": "Müziğin yasaklandığı distopik bir şehirde geçen 2D atmosferik stealth/narrative puzzle oyunu. Hikâye, dünya kurgusu ve müzik bana ait; GDevelop'ta geliştiriyorum.",
+        "pills": ["Anlatı Tasarımı","Dünya Kurgusu","Müzik Kompozisyonu","GDevelop"],
+        "status": "Oynanabilir Demo",
+        "statusType": "wip",
+        "demo": {"url": "", "label": "Demoyu Oyna", "placeholder": "Demo Linki Eklenecek"}
+      },
       {
         "year": "2026",
         "tag": "Oyun Tasarımı · Devam Ediyor",
@@ -183,6 +195,16 @@
     ],
     "projectsTitle": "Projects",
     "projects": [
+      {
+        "year": "2026",
+        "tag": "2D Stealth / Narrative Puzzle · GDevelop",
+        "name": "ECHO — The City Remembers",
+        "desc": "A 2D atmospheric stealth and narrative puzzle game set in a dystopian city where music is banned. Story, world-building, and music are all my own; built in GDevelop.",
+        "pills": ["Narrative Design","World-building","Music Composition","GDevelop"],
+        "status": "Playable Demo",
+        "statusType": "wip",
+        "demo": {"url": "", "label": "Play the Demo", "placeholder": "Demo Link — To Be Added"}
+      },
       {
         "year": "2026",
         "tag": "Game Design · In Progress",
@@ -322,7 +344,11 @@
       document.getElementById('about-p3').textContent=d.about.p3;
       document.getElementById('about-cards').innerHTML=d.cards.map(function(c){return '<div class="card"><div class="card-label">'+c.label+'</div><div class="card-value">'+c.value+'<small>'+c.sub+'</small></div></div>';}).join('');
       document.getElementById('projects-title').textContent=d.projectsTitle;
-      document.getElementById('projects-list').innerHTML=d.projects.map(function(p){return '<article class="project"><div class="project-year">'+p.year+'</div><div><span class="project-tag">'+p.tag+'</span><h3 class="project-name">'+p.name+'</h3><p class="project-desc">'+p.desc+'</p><div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div><span class="status '+p.statusType+'">'+p.status+'</span></div></article>';}).join('');
+      document.getElementById('projects-list').innerHTML=d.projects.map(function(p){
+        var demo='';
+        if(p.demo){demo=p.demo.url?' <a class="status demo" href="'+p.demo.url+'" target="_blank" rel="noopener">'+p.demo.label+' &#8594;</a>':' <span class="status demo-ph">'+p.demo.placeholder+'</span>';}
+        return '<article class="project"><div class="project-year">'+p.year+'</div><div><span class="project-tag">'+p.tag+'</span><h3 class="project-name">'+p.name+'</h3><p class="project-desc">'+p.desc+'</p><div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div><span class="status '+p.statusType+'">'+p.status+'</span>'+demo+'</div></article>';
+      }).join('');
       document.getElementById('writings-title').textContent=d.writingsTitle;
       var wList=document.getElementById('writings-list');
       if(d.writings.length===0){wList.innerHTML='<p style="color:var(--muted);font-family:\'DM Mono\',monospace;font-size:.75rem;letter-spacing:.12em;">'+d.writingsEmpty+'</p>';}
