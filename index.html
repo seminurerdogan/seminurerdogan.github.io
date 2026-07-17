@@ -87,6 +87,14 @@
     .detail-grid p{color:var(--muted)}
     .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:1rem}
     .media-ph{border:1px dashed rgba(154,111,42,.45);background:var(--card-bg);min-height:160px;display:flex;align-items:center;justify-content:center;text-align:center;padding:1.2rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);line-height:1.8}
+    .music-intro{color:var(--muted);max-width:600px;margin:-1rem 0 2.5rem}
+    .music-list{display:flex;flex-direction:column}
+    .track{display:grid;grid-template-columns:320px 1fr;gap:1.5rem;align-items:start;padding:1.8rem 0;border-top:1px solid var(--line)}
+    .track:last-child{border-bottom:1px solid var(--line)}
+    .track-embed .media-ph{min-height:120px}
+    .track-embed iframe{max-width:100%}
+    .track-title{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:.4rem}
+    .track-context{color:var(--muted)}
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
     .skill-group h3{font-family:'Playfair Display',serif;font-size:1.06rem;color:var(--gold2);font-style:italic;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
     .skill-item{margin-bottom:1rem}
@@ -120,7 +128,7 @@
       .nav-right{gap:.8rem}
       .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1.1rem;background:var(--bg);border-bottom:1px solid var(--line);padding:1.2rem;box-shadow:0 14px 28px rgba(26,18,8,.08)}
       nav.open .nav-links{display:flex}
-      section{padding:5rem 1.2rem}.about-grid{grid-template-columns:1fr}.project,.exp-card,.writing-card{grid-template-columns:1fr}.writing-arrow{display:none}footer{padding:1.2rem;flex-direction:column;text-align:center}
+      section{padding:5rem 1.2rem}.about-grid{grid-template-columns:1fr}.project,.exp-card,.writing-card,.track{grid-template-columns:1fr}.writing-arrow{display:none}footer{padding:1.2rem;flex-direction:column;text-align:center}
     }
     @media(max-width:600px){.hero-name{font-size:3rem}}
   </style>
@@ -130,7 +138,7 @@
 <script id="content-data" type="application/json">
 {
   "tr": {
-    "nav": {"about":"Hakkımda","projects":"Projeler","writings":"Yazılar","experience":"Deneyim","skills":"Beceriler","contact":"İletişim"},
+    "nav": {"about":"Hakkımda","projects":"Projeler","music":"Müzik","writings":"Yazılar","experience":"Deneyim","skills":"Beceriler","contact":"İletişim"},
     "hero": {
       "eyebrow": "Anlatı Yazarlığı · Oyun Tasarımı · Müzik",
       "tagline": "Oyunlar için hikâye yazıyor ve müzik besteliyorum.",
@@ -198,6 +206,15 @@
         }
       }
     ],
+    "musicTitle": "Müzik",
+    "music": {
+      "intro": "Bestelediğim parçalar ve her birinin hangi proje ya da sahne için yazıldığı.",
+      "tracks": [
+        {"title":"Parça 1 — başlık eklenecek","context":"Hangi proje / sahne için yazıldığı — açıklama eklenecek.","embed":"","embedPh":"SoundCloud / YouTube embed — eklenecek"},
+        {"title":"Parça 2 — başlık eklenecek","context":"Hangi proje / sahne için yazıldığı — açıklama eklenecek.","embed":"","embedPh":"SoundCloud / YouTube embed — eklenecek"},
+        {"title":"Parça 3 — başlık eklenecek","context":"Hangi proje / sahne için yazıldığı — açıklama eklenecek.","embed":"","embedPh":"SoundCloud / YouTube embed — eklenecek"}
+      ]
+    },
     "writingsTitle": "Yazılar",
     "writings": [{"date":"1 Mayıs 2026","tag":"Oyun İncelemesi","readTime":"~3 dk","title":"Beyond: Two Souls Üzerine","excerpt":"Kronoloji, kamera açıları ve bir sahnenin oyuncuya verdiği özgürlük üzerine.","abstract":"Kronolojik olmayan kurgunun işlevi, sinematik kamera tercihlerinin oynanışa bedeli ve oyuncuya hiçbir şey yapmama özgürlüğü tanıyan bir sahne üzerine bir inceleme.","file":"yazilar/beyond-two-souls.html"},{"date":"17 Mayıs 2026","tag":"Oyun İncelemesi","readTime":"~4 dk","title":"Heavy Rain Üzerine","excerpt":"Bir suçlunun masum görünmesi için ne gerekir, bir masum suçlu görünmesi için ne yeter.","abstract":"Dört oynanabilir karakter üzerinden suçluluk ve şüphenin nasıl kurulduğu, istatistik göstermeyen seçim sisteminin karara kattığı ağırlık üzerine bir inceleme.","file":"yazilar/heavy-rain.html"}],
     "writingsEmpty": "Yakında yazılar burada olacak.",
@@ -222,7 +239,7 @@
     "footer": "Istanbul, Türkiye"
   },
   "en": {
-    "nav": {"about":"About","projects":"Projects","writings":"Writing","experience":"Experience","skills":"Skills","contact":"Contact"},
+    "nav": {"about":"About","projects":"Projects","music":"Music","writings":"Writing","experience":"Experience","skills":"Skills","contact":"Contact"},
     "hero": {
       "eyebrow": "Narrative Writing · Game Design · Music",
       "tagline": "I write stories and compose music for games.",
@@ -290,6 +307,15 @@
         }
       }
     ],
+    "musicTitle": "Music",
+    "music": {
+      "intro": "Tracks I've composed, with a note on which project or scene each one was written for.",
+      "tracks": [
+        {"title":"Track 1 — title to be added","context":"Which project / scene it was written for — description to be added.","embed":"","embedPh":"SoundCloud / YouTube embed — to be added"},
+        {"title":"Track 2 — title to be added","context":"Which project / scene it was written for — description to be added.","embed":"","embedPh":"SoundCloud / YouTube embed — to be added"},
+        {"title":"Track 3 — title to be added","context":"Which project / scene it was written for — description to be added.","embed":"","embedPh":"SoundCloud / YouTube embed — to be added"}
+      ]
+    },
     "writingsTitle": "Writing",
     "writings": [{"date":"May 1, 2026","tag":"Game Review","readTime":"~3 min","title":"On Beyond: Two Souls","excerpt":"On chronology, camera angles, and the freedom a single scene can give a player.","abstract":"A close look at what non-linear structure is for, what cinematic cameras cost in play, and a scene that lets the player choose to do nothing.","file":"yazilar/beyond-two-souls.html"},{"date":"May 17, 2026","tag":"Game Review","readTime":"~4 min","title":"On Heavy Rain","excerpt":"What does it take for a guilty man to seem innocent, what does it take for an innocent man to seem guilty.","abstract":"On how guilt and suspicion are built across four playable characters, and what the choice system gains by hiding its statistics.","file":"yazilar/heavy-rain.html"}],
     "writingsEmpty": "Posts coming soon.",
@@ -322,6 +348,7 @@
       <ul class="nav-links">
         <li><a id="nav-about" href="#about"></a></li>
         <li><a id="nav-projects" href="#projects"></a></li>
+        <li><a id="nav-music" href="#music"></a></li>
         <li><a id="nav-writings" href="#writings"></a></li>
         <li><a id="nav-experience" href="#experience"></a></li>
         <li><a id="nav-skills" href="#skills"></a></li>
@@ -360,23 +387,29 @@
     <div id="project-detail"></div>
   </section>
 
+  <section id="music" class="view">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title" id="music-title"></h2><div class="section-rule"></div></div>
+    <p class="music-intro" id="music-intro"></p>
+    <div class="music-list" id="music-list"></div>
+  </section>
+
   <section id="writings" class="view">
-    <div class="section-header"><span class="section-num">03</span><h2 class="section-title" id="writings-title"></h2><div class="section-rule"></div></div>
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title" id="writings-title"></h2><div class="section-rule"></div></div>
     <div class="writings-list" id="writings-list"></div>
   </section>
 
   <section id="experience" class="view">
-    <div class="section-header"><span class="section-num">04</span><h2 class="section-title" id="experience-title"></h2><div class="section-rule"></div></div>
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title" id="experience-title"></h2><div class="section-rule"></div></div>
     <div class="experience-list" id="experience-list"></div>
   </section>
 
   <section id="skills" class="view">
-    <div class="section-header"><span class="section-num">05</span><h2 class="section-title" id="skills-title"></h2><div class="section-rule"></div></div>
+    <div class="section-header"><span class="section-num">06</span><h2 class="section-title" id="skills-title"></h2><div class="section-rule"></div></div>
     <div class="skills-grid" id="skills-grid"></div>
   </section>
 
   <section id="contact" class="view">
-    <div class="section-header"><span class="section-num">06</span><h2 class="section-title" id="contact-title"></h2><div class="section-rule"></div></div>
+    <div class="section-header"><span class="section-num">07</span><h2 class="section-title" id="contact-title"></h2><div class="section-rule"></div></div>
     <div class="contact-wrap">
       <h3 class="contact-big"><span id="contact-h1"></span><br><em id="contact-h2"></em></h3>
       <p class="contact-sub" id="contact-sub"></p>
@@ -400,6 +433,7 @@
       document.documentElement.lang=currentLang;
       document.getElementById('nav-about').textContent=d.nav.about;
       document.getElementById('nav-projects').textContent=d.nav.projects;
+      document.getElementById('nav-music').textContent=d.nav.music;
       document.getElementById('nav-writings').textContent=d.nav.writings;
       document.getElementById('nav-experience').textContent=d.nav.experience;
       document.getElementById('nav-skills').textContent=d.nav.skills;
@@ -421,6 +455,9 @@
         var more=(p.slug&&p.detail)?'<div><a class="project-more" href="#projects/'+p.slug+'">'+d.projectDetail.more+' &#8594;</a></div>':'';
         return '<article class="project"><div class="project-year">'+p.year+'</div><div><span class="project-tag">'+p.tag+'</span><h3 class="project-name">'+nameHtml+'</h3><p class="project-desc">'+p.desc+'</p><div class="pills">'+p.pills.map(function(x){return '<span class="pill">'+x+'</span>';}).join('')+'</div><span class="status '+p.statusType+'">'+p.status+'</span>'+demo+more+'</div></article>';
       }).join('');
+      document.getElementById('music-title').textContent=d.musicTitle;
+      document.getElementById('music-intro').textContent=d.music.intro;
+      document.getElementById('music-list').innerHTML=d.music.tracks.map(function(t){return '<div class="track"><div class="track-embed">'+(t.embed?t.embed:'<div class="media-ph">'+t.embedPh+'</div>')+'</div><div><h3 class="track-title">'+t.title+'</h3><p class="track-context">'+t.context+'</p></div></div>';}).join('');
       document.getElementById('writings-title').textContent=d.writingsTitle;
       var wList=document.getElementById('writings-list');
       if(d.writings.length===0){wList.innerHTML='<p style="color:var(--muted);font-family:\'DM Mono\',monospace;font-size:.75rem;letter-spacing:.12em;">'+d.writingsEmpty+'</p>';}
@@ -444,7 +481,7 @@
 
     /* ── Hash router: her bölüm bir sekme, sayfa yenilenmeden geçiş ── */
     var navEl=document.getElementById('site-nav');
-    var viewIds=['hero','about','projects','writings','experience','skills','contact'];
+    var viewIds=['hero','about','projects','music','writings','experience','skills','contact'];
     var routeAliases={'':'hero','home':'hero','writing':'writings'};
     function currentRoute(){
       var h=decodeURIComponent(location.hash.replace(/^#\/?/,''));
