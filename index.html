@@ -39,7 +39,7 @@
     .section-num{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.12em}
     .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.6vw,2.7rem)}
     .section-rule{flex:1;height:1px;background:var(--line);max-width:200px}
-    #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:5rem;background-image:url('background.png');background-size:cover;background-position:center;position:relative}
+    #hero{min-height:100vh;flex-direction:column;justify-content:center;padding-top:5rem;background-image:url('background.png');background-size:cover;background-position:center;position:relative}
     #hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(247,242,234,.93) 55%,rgba(247,242,234,.5))}
     #hero>*{position:relative;z-index:1}
     .hero-eyebrow{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
@@ -73,7 +73,7 @@
     .status{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid var(--line);color:var(--muted);display:inline-block;margin-top:.8rem}
     .status.wip{color:var(--gold);border-color:rgba(154,111,42,.35)}
     .status.demo{background:var(--gold);color:#fff;border-color:var(--gold);text-decoration:none;margin-left:.4rem}
-    .status.demo-ph{border-style:dashed;color:var(--gold);border-color:rgba(154,111,42,.45);margin-left:.4rem}
+    .status.demo-ph{color:var(--gold);border-color:rgba(154,111,42,.35);margin-left:.4rem}
     .project-name a{color:inherit;text-decoration:none;transition:color .2s}
     .project-name a:hover{color:var(--gold2)}
     .project-more{display:inline-block;margin-top:1rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none}
@@ -86,7 +86,10 @@
     .detail-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
     .detail-grid p{color:var(--muted)}
     .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:1rem}
-    .media-ph{border:1px dashed rgba(154,111,42,.45);background:var(--card-bg);min-height:160px;display:flex;align-items:center;justify-content:center;text-align:center;padding:1.2rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);line-height:1.8}
+    .media-ph{border:1px solid var(--line);background:var(--card-bg);min-height:160px;display:flex;flex-direction:column;gap:.55rem;align-items:center;justify-content:center;text-align:center;padding:1.2rem}
+    .ph-icon{font-size:1.5rem;color:var(--gold2);opacity:.85;line-height:1}
+    .ph-main{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+    .ph-sub{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
     .music-intro{color:var(--muted);max-width:600px;margin:-1rem 0 2.5rem}
     .music-list{display:flex;flex-direction:column}
     .track{display:grid;grid-template-columns:320px 1fr;gap:1.5rem;align-items:start;padding:1.8rem 0;border-top:1px solid var(--line)}
@@ -122,6 +125,7 @@
     .writing-card:hover .writing-arrow{opacity:1;transform:translateX(4px)}
     footer{padding:1.5rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     footer p{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    body.route-hero footer{position:fixed;left:0;right:0;bottom:0;background:transparent;border-top:none;z-index:5}
     @media(max-width:900px){
       nav{padding:1rem 1.2rem;background:linear-gradient(to bottom,rgba(247,242,234,.98),rgba(247,242,234,.92))}
       .nav-toggle{display:block}
@@ -157,7 +161,7 @@
       {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Bahar 2027 · Bolzano, İtalya"}
     ],
     "projectsTitle": "Projeler",
-    "projectDetail": {"overview":"Genel Bakış","role":"Benim Rolüm","approach":"Anlatı Yaklaşımı","media":"Medya","galleryPh":"Görsel galerisi — placeholder (görseller eklenecek)","audioPh":"Ses oynatıcı — placeholder (SoundCloud / YouTube embed eklenecek)","back":"← Tüm Projeler","more":"Detaylar"},
+    "projectDetail": {"overview":"Genel Bakış","role":"Benim Rolüm","approach":"Anlatı Yaklaşımı","media":"Medya","soon":"Yakında","galleryPh":"Görsel galerisi","audioPh":"Müzik & ses","back":"← Tüm Projeler","more":"Detaylar"},
     "projects": [
       {
         "slug": "echo",
@@ -168,7 +172,7 @@
         "pills": ["Anlatı Tasarımı","Dünya Kurgusu","Müzik Kompozisyonu","GDevelop"],
         "status": "Oynanabilir Demo",
         "statusType": "wip",
-        "demo": {"url": "", "label": "Demoyu Oyna", "placeholder": "Demo Linki Eklenecek"},
+        "demo": {"url": "", "label": "Demoyu Oyna", "placeholder": "Demo — Yakında"},
         "detail": {
           "overview": "Müziğin yasaklandığı distopik bir şehirde geçen 2D atmosferik stealth/narrative puzzle. GDevelop'ta geliştiriliyor; oynanabilir bir demosu var.",
           "role": "Hikâye, dünya kurgusu ve müzik tamamen bana ait. Oyunu GDevelop'ta kendim geliştiriyorum.",
@@ -209,10 +213,12 @@
     "musicTitle": "Müzik",
     "music": {
       "intro": "Bestelediğim parçalar ve her birinin hangi proje ya da sahne için yazıldığı.",
+      "soon": "Yakında",
+      "embedSub": "SoundCloud / YouTube",
       "tracks": [
-        {"title":"Parça 1 — başlık eklenecek","context":"Hangi proje / sahne için yazıldığı — açıklama eklenecek.","embed":"","embedPh":"SoundCloud / YouTube embed — eklenecek"},
-        {"title":"Parça 2 — başlık eklenecek","context":"Hangi proje / sahne için yazıldığı — açıklama eklenecek.","embed":"","embedPh":"SoundCloud / YouTube embed — eklenecek"},
-        {"title":"Parça 3 — başlık eklenecek","context":"Hangi proje / sahne için yazıldığı — açıklama eklenecek.","embed":"","embedPh":"SoundCloud / YouTube embed — eklenecek"}
+        {"title":"Yeni parça","context":"Hangi proje ve sahne için yazıldığı burada yer alacak — yakında.","embed":""},
+        {"title":"Yeni parça","context":"Hangi proje ve sahne için yazıldığı burada yer alacak — yakında.","embed":""},
+        {"title":"Yeni parça","context":"Hangi proje ve sahne için yazıldığı burada yer alacak — yakında.","embed":""}
       ]
     },
     "writingsTitle": "Yazılar",
@@ -258,7 +264,7 @@
       {"label":"Erasmus","value":"Free University of Bozen-Bolzano","sub":"Spring 2027 · Bolzano, Italy"}
     ],
     "projectsTitle": "Projects",
-    "projectDetail": {"overview":"Overview","role":"My Role","approach":"Narrative Approach","media":"Media","galleryPh":"Image gallery — placeholder (visuals to be added)","audioPh":"Audio player — placeholder (SoundCloud / YouTube embed to be added)","back":"← All Projects","more":"Details"},
+    "projectDetail": {"overview":"Overview","role":"My Role","approach":"Narrative Approach","media":"Media","soon":"Coming Soon","galleryPh":"Image gallery","audioPh":"Music & audio","back":"← All Projects","more":"Details"},
     "projects": [
       {
         "slug": "echo",
@@ -269,7 +275,7 @@
         "pills": ["Narrative Design","World-building","Music Composition","GDevelop"],
         "status": "Playable Demo",
         "statusType": "wip",
-        "demo": {"url": "", "label": "Play the Demo", "placeholder": "Demo Link — To Be Added"},
+        "demo": {"url": "", "label": "Play the Demo", "placeholder": "Demo — Coming Soon"},
         "detail": {
           "overview": "A 2D atmospheric stealth and narrative puzzle game set in a dystopian city where music is banned. Built in GDevelop, with a playable demo.",
           "role": "Story, world-building, and music are all my own. I'm also building the game myself in GDevelop.",
@@ -310,10 +316,12 @@
     "musicTitle": "Music",
     "music": {
       "intro": "Tracks I've composed, with a note on which project or scene each one was written for.",
+      "soon": "Coming Soon",
+      "embedSub": "SoundCloud / YouTube",
       "tracks": [
-        {"title":"Track 1 — title to be added","context":"Which project / scene it was written for — description to be added.","embed":"","embedPh":"SoundCloud / YouTube embed — to be added"},
-        {"title":"Track 2 — title to be added","context":"Which project / scene it was written for — description to be added.","embed":"","embedPh":"SoundCloud / YouTube embed — to be added"},
-        {"title":"Track 3 — title to be added","context":"Which project / scene it was written for — description to be added.","embed":"","embedPh":"SoundCloud / YouTube embed — to be added"}
+        {"title":"New track","context":"Which project and scene it was written for will appear here — coming soon.","embed":""},
+        {"title":"New track","context":"Which project and scene it was written for will appear here — coming soon.","embed":""},
+        {"title":"New track","context":"Which project and scene it was written for will appear here — coming soon.","embed":""}
       ]
     },
     "writingsTitle": "Writing",
@@ -457,7 +465,7 @@
       }).join('');
       document.getElementById('music-title').textContent=d.musicTitle;
       document.getElementById('music-intro').textContent=d.music.intro;
-      document.getElementById('music-list').innerHTML=d.music.tracks.map(function(t){return '<div class="track"><div class="track-embed">'+(t.embed?t.embed:'<div class="media-ph">'+t.embedPh+'</div>')+'</div><div><h3 class="track-title">'+t.title+'</h3><p class="track-context">'+t.context+'</p></div></div>';}).join('');
+      document.getElementById('music-list').innerHTML=d.music.tracks.map(function(t){return '<div class="track"><div class="track-embed">'+(t.embed?t.embed:'<div class="media-ph"><span class="ph-icon">&#9834;</span><span class="ph-main">'+d.music.soon+'</span><span class="ph-sub">'+d.music.embedSub+'</span></div>')+'</div><div><h3 class="track-title">'+t.title+'</h3><p class="track-context">'+t.context+'</p></div></div>';}).join('');
       document.getElementById('writings-title').textContent=d.writingsTitle;
       var wList=document.getElementById('writings-list');
       if(d.writings.length===0){wList.innerHTML='<p style="color:var(--muted);font-family:\'DM Mono\',monospace;font-size:.75rem;letter-spacing:.12em;">'+d.writingsEmpty+'</p>';}
@@ -512,12 +520,16 @@
         +'<div><h4 class="detail-label">'+L.approach+'</h4><p>'+p.detail.approach+'</p></div>'
         +'</div>'
         +'<h4 class="detail-label">'+L.media+'</h4>'
-        +'<div class="media-grid"><div class="media-ph">'+L.galleryPh+'</div><div class="media-ph">'+L.audioPh+'</div></div>';
+        +'<div class="media-grid">'
+        +'<div class="media-ph"><span class="ph-icon">&#10022;</span><span class="ph-main">'+L.soon+'</span><span class="ph-sub">'+L.galleryPh+'</span></div>'
+        +'<div class="media-ph"><span class="ph-icon">&#9834;</span><span class="ph-main">'+L.soon+'</span><span class="ph-sub">'+L.audioPh+'</span></div>'
+        +'</div>';
     }
     function showView(){
       var r=currentRoute();
       [].forEach.call(document.querySelectorAll('section.view'),function(s){s.classList.toggle('active',s.id===r.view);});
       [].forEach.call(document.querySelectorAll('.nav-links a'),function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+r.view);});
+      document.body.className='route-'+r.view;
       renderProjectDetail(r.view==='projects'?r.detail:null);
       navEl.classList.remove('open');
       window.scrollTo(0,0);
